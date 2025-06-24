@@ -1,9 +1,20 @@
 # LangChain Translation Applications
 
-This repository contains two basic LangChain applications that demonstrate text translation capabilities using Google's Gemini model:
+This repository contains three implementations of a translation service using LangChain and Google's Gemini model:
 
-1. A simple command-line application (`main.py`)
-2. An interactive Jupyter notebook (`LLM_application.ipynb`)
+1. A web interface (deployed on GitHub Pages)
+2. A simple command-line application (`main.py`)
+3. An interactive Jupyter notebook (`LLM_application.ipynb`)
+
+## Web Interface
+
+You can access the web interface at: [https://[your-username].github.io/llm-nullsafe/](https://netfoor.github.io/llm-nullsafe/)
+
+Features:
+- Simple and modern UI
+- Support for multiple languages
+- Secure API key handling (never stored, only kept in memory)
+- Responsive design for mobile devices
 
 Both applications showcase different approaches to implementing translation services using LangChain and Google's Gemini model.
 

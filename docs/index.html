@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangChain Translator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LangChain Translator</h1>
+            <div class="api-key-section">
+                <input type="password" id="apiKey" placeholder="Enter your Google API Key" class="api-input">
+                <button onclick="saveApiKey()" class="save-btn">Save API Key</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="translation-container">
+                <div class="language-select">
+                    <select id="targetLanguage">
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Russian">Russian</option>
+                        <option value="Portuguese">Portuguese</option>
+                    </select>
+                </div>
+
+                <div class="text-areas">
+                    <div class="input-area">
+                        <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
+                    </div>
+                    <div class="output-area">
+                        <textarea id="outputText" readonly placeholder="Translation will appear here..."></textarea>
+                    </div>
+                </div>
+
+                <button onclick="translateText()" class="translate-btn">Translate</button>
+            </div>
+        </main>
+
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@langchain/community@0.0.28"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@langchain/google-genai@0.0.9"></script>
+    <script src="script.js"></script>
+</body>
+</html>
