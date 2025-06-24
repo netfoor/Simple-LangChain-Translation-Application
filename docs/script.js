@@ -1,6 +1,3 @@
-// Initialize variables
-let apiKey = '';
-
 // Function to show toast messages
 function showToast(message, isError = false) {
     const toast = document.getElementById('toast');
@@ -14,23 +11,51 @@ function showToast(message, isError = false) {
     }, 3000);
 }
 
+// Function to get API key from session storage
+function getApiKey() {
+    return sessionStorage.getItem('translatorApiKey');
+}
+
+// Function to validate API key format
+function isValidApiKey(key) {
+    // Basic validation for Google API key format
+    return /^AIza[0-9A-Za-z-_]{35}$/.test(key);
+}
+
 // Function to save API key
 function saveApiKey() {
     const apiKeyInput = document.getElementById('apiKey');
-    apiKey = apiKeyInput.value.trim();
+    const key = apiKeyInput.value.trim();
     
-    if (!apiKey) {
+    if (!key) {
         showToast('Please enter a valid API key', true);
         return;
     }
+
+    if (!isValidApiKey(key)) {
+        showToast('Invalid API key format. Please check your key.', true);
+        return;
+    }
     
-    // Clear the input for security
-    apiKeyInput.value = '';
-    showToast('API key saved successfully');
+    try {
+        // Save to session storage
+        sessionStorage.setItem('translatorApiKey', key);
+        
+        // Clear the input for security
+        apiKeyInput.value = '';
+        showToast('API key saved successfully and will be cleared when you close your browser');
+        
+        // Update the UI to show the API key is active
+        apiKeyInput.placeholder = 'API key saved for this session';
+    } catch (error) {
+        console.error('Error saving API key:', error);
+        showToast('Error saving API key. Please try again.', true);
+    }
 }
 
 // Function to translate text
 async function translateText() {
+    const apiKey = getApiKey();
     if (!apiKey) {
         showToast('Please save your API key first', true);
         return;
@@ -52,7 +77,7 @@ async function translateText() {
         // Initialize the model with the API key
         const model = new GoogleGenerativeAI({
             apiKey: apiKey,
-            modelName: "gemini-pro"
+            modelName: "gemini-2.0-flash"
         });
 
         // Create the translation prompt
