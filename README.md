@@ -1,28 +1,9 @@
 # LangChain Translation Applications
 
-This repository contains three implementations of a translation service using LangChain and Google's Gemini model:
+This repository contains two implementations of a translation service using LangChain and Google's Gemini model:
 
-1. A web interface (deployed on GitHub Pages)
-2. A simple command-line application (`main.py`)
-3. An interactive Jupyter notebook (`LLM_application.ipynb`)
-
-## Web Interface
-
-You can access the web interface at: [https://[your-username].github.io/llm-nullsafe/](https://netfoor.github.io/Simple-LangChain-Translation-Application/)
-
-Features:
-- Simple and modern UI
-- Support for multiple languages
-- Secure API key handling (never stored, only kept in memory)
-- Responsive design for mobile devices
-
-### Web Interface Screenshots
-
-![Web Interface](images/webpage.png)
-*Main interface of the translation application*
-
-![Translation Result](images/result-web.png)
-*Example of a successful translation*
+1. A simple command-line application (`main.py`)
+2. An interactive Jupyter notebook (`LLM_application.ipynb`)
 
 ## LangSmith Integration
 
@@ -44,7 +25,7 @@ This project uses LangSmith for monitoring and debugging LLM applications. LangS
 ![Prompt Tracing](images/prompt-tracing-smith.png)
 *Prompt analysis and optimization data*
 
-Both applications showcase different approaches to implementing translationservices using LangChain and Google's Gemini model.
+These applications showcase different approaches to implementing translation services using LangChain and Google's Gemini model.
 
 ## Prerequisites
 
